@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SKYBLACKY® – gafas y armazones</title>
   <meta name="description" content="SKYBLACKY® – gafas y armazones" />
-
   <style>
     :root{
       --bg:#0f1115;
@@ -13,7 +12,6 @@
       --text:#e8eef9;
       --muted:#9fb0c7;
       --accent:#35a0ff;
-      --accent-2:#00d4aa;
       --border:rgba(255,255,255,.08);
     }
     *{box-sizing:border-box}
@@ -25,10 +23,10 @@
                   radial-gradient(900px 700px at 110% 10%, #10242d, transparent 50%),
                   var(--bg);
       color:var(--text);
-      line-height:1.5;
+      line-height:1.6;
     }
 
-    /* Header / branding */
+    /* Header */
     header{
       position:sticky; top:0; z-index:10;
       backdrop-filter:saturate(150%) blur(6px);
@@ -37,38 +35,27 @@
     }
     .wrap{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px}
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
-    .logo-img{
-      height:44px; width:auto; display:block;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
-    }
+    .logo-img{height:44px; width:auto; display:block; filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));}
     .brand strong{font-size:1.05rem; letter-spacing:.4px}
     .brand small{display:block; color:var(--muted); font-size:.78rem; margin-top:-2px}
-
     nav{margin-left:auto; display:flex; gap:6px; flex-wrap:wrap}
     .btn{
-      border:1px solid var(--border);
-      color:var(--text);
-      background:transparent;
-      padding:8px 12px;
-      border-radius:10px;
-      cursor:pointer;
-      font-weight:600;
-      letter-spacing:.2px;
-      transition:.18s ease-in-out;
+      border:1px solid var(--border); color:var(--text);
+      background:transparent; padding:8px 12px; border-radius:10px; cursor:pointer;
+      font-weight:600; letter-spacing:.2px; transition:.18s ease-in-out;
     }
     .btn:hover{transform:translateY(-1px); border-color:#2a3342; background:rgba(255,255,255,.03)}
 
+    /* Body card */
     main{max-width:1100px;margin:28px auto;padding:0 20px 48px}
-    .hero{
+    .card{
       border:1px solid var(--border); border-radius:16px;
       background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      padding:24px; display:grid; gap:16px;
-      box-shadow:0 10px 24px rgba(0,0,0,.25);
+      padding:26px; box-shadow:0 10px 24px rgba(0,0,0,.25);
     }
-    .hero .hero-brand{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
-    .hero .hero-logo{height:64px; width:auto}
-    .hero h1{margin:0;font-size:clamp(24px, 4vw, 36px);}
-    .hero p{margin:4px 0 0;color:var(--muted)}
+    h1{margin:0 0 10px; font-size:clamp(24px,4vw,32px)}
+    p{margin:10px 0; color:var(--text)}
+    .lead{color:var(--muted)}
 
     /* Floating actions */
     .fab{position:fixed; right:18px; bottom:18px; display:flex; flex-direction:column; gap:10px; z-index:20;}
@@ -76,29 +63,21 @@
     .fab a.mail{background:#5865f2; box-shadow:0 8px 22px rgba(88,101,242,.35)}
     .fab svg{width:26px; height:26px; fill:#fff}
 
-    /* Modal */
-    dialog{border:none; padding:0; border-radius:16px; color:var(--text); background:linear-gradient(180deg, #171a21, #141820); box-shadow:0 18px 48px rgba(0,0,0,.6); width:min(560px, 92vw);}
-    dialog::backdrop{background:rgba(5,8,12,.6); backdrop-filter: blur(2px)}
-    .modal-header{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--border)}
-    .modal-title{font-weight:800; letter-spacing:.3px}
-    .modal-body{padding:26px 22px}
-    .under-construction{display:grid; place-items:center; height:160px; border:1px dashed var(--border); border-radius:12px; color:var(--muted); font-weight:700; letter-spacing:.4px; background: repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 10px, rgba(255,255,255,.015) 10px 20px);}
-    .close{background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:6px 10px;cursor:pointer}
     footer{max-width:1100px;margin:0 auto;padding:12px 20px 40px;color:var(--muted);font-size:.9rem}
     a.link{color:var(--accent); text-decoration:none}
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
     <div class="wrap">
       <a class="brand" href="#" aria-label="Inicio SKYBLACKY">
-        <img class="logo-img" src="/logo-skyblack.jpg" alt="Logo SKYBLACKY" />
+        <img class="logo-img" src="./img/logo-skyblack.jpg" alt="Logo SKYBLACKY" />
         <span>
           <strong>SKYBLACKY® – gafas y armazones</strong>
           <small>Calidad y diseño</small>
         </span>
       </a>
-
       <nav>
         <button class="btn" data-section="Sobre nosotros">Sobre nosotros</button>
         <button class="btn" data-section="Modelos">Modelos</button>
@@ -108,16 +87,12 @@
     </div>
   </header>
 
+  <!-- CUERPO (se mantiene el texto) -->
   <main>
-    <section class="hero">
-      <div class="hero-brand">
-        <img class="hero-logo" src="/logo-skyblack.jpg" alt="Logo SKYBLACKY" />
-        <div>
-          <h1>SKYBLACKY® – gafas y armazones</h1>
-          <p>Fábrica de armazones y anteojos – Córdoba. Próximamente catálogo y descargas.</p>
-        </div>
-      </div>
-    </section>
+    <article class="card">
+      <h1>Sobre nosotros</h1>
+      <p>Somos una empresa con más de 40 años en el mercado, distribuyendo productos ópticos. A mediados de 2022 decidimos fabricar en Córdoba nuestra propia línea de armazones. Alejandro Cristaldo fue el encargado del desarrollo de los modelos y de las matrices, que importamos después de mucho esfuerzo. A mediados de 2023 lanzamos las primeras pruebas y hoy contamos con gran orgullo tenemos  12 modelos en más de quince colores. Hemos logrado una línea que se destaca por su calidad, diseño y precio, la cual comercializamos en todo el país.</p>
+    </article>
   </main>
 
   <!-- Floating WhatsApp & Email -->
@@ -130,19 +105,6 @@
     </a>
   </div>
 
-  <!-- Modal -->
-  <dialog id="modal">
-    <div class="modal-header">
-      <div class="modal-title" id="modal-title">Sección</div>
-      <form method="dialog">
-        <button class="close" value="close">Cerrar</button>
-      </form>
-    </div>
-    <div class="modal-body">
-      <div class="under-construction">Página en construcción</div>
-    </div>
-  </dialog>
-
   <footer>
     © <span id="year"></span> SKYBLACKY – gafas y armazones ·
     <a class="link" href="https://wa.me/5493516790073" target="_blank" rel="noopener">WhatsApp</a> ·
@@ -150,15 +112,6 @@
   </footer>
 
   <script>
-    const modal = document.getElementById('modal');
-    const titleEl = document.getElementById('modal-title');
-    document.querySelectorAll('[data-section]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        titleEl.textContent = btn.dataset.section;
-        if(typeof modal.showModal === 'function'){ modal.showModal(); }
-        else { alert(btn.dataset.section + " - Página en construcción"); }
-      });
-    });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
