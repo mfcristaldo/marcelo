@@ -4,98 +4,123 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SKYBLACKY® – gafas y armazones</title>
-  <meta name="description" content="SKYBLACKY® – gafas y armazones" />
-  <style>
-    :root{
-      --bg:#0f1115;
-      --card:#171a21;
-      --text:#e8eef9;
-      --muted:#9fb0c7;
-      --accent:#35a0ff;
-      --border:rgba(255,255,255,.08);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 10% -10%, #182034, transparent 60%),
-                  radial-gradient(900px 700px at 110% 10%, #10242d, transparent 50%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.6;
-    }
-
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter:saturate(150%) blur(6px);
-      background:linear-gradient(180deg, rgba(20,22,28,.85), rgba(20,22,28,.6));
-      border-bottom:1px solid var(--border);
-    }
-    .wrap{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px}
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
-    .logo-img{height:44px; width:auto; display:block; filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));}
-    .brand strong{font-size:1.05rem; letter-spacing:.4px}
-    .brand small{display:block; color:var(--muted); font-size:.78rem; margin-top:-2px}
-    nav{margin-left:auto; display:flex; gap:6px; flex-wrap:wrap}
-    .btn{
-      border:1px solid var(--border); color:var(--text);
-      background:transparent; padding:8px 12px; border-radius:10px; cursor:pointer;
-      font-weight:600; letter-spacing:.2px; transition:.18s ease-in-out;
-    }
-    .btn:hover{transform:translateY(-1px); border-color:#2a3342; background:rgba(255,255,255,.03)}
-
-    /* Body card */
-    main{max-width:1100px;margin:28px auto;padding:0 20px 48px}
-    .card{
-      border:1px solid var(--border); border-radius:16px;
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      padding:26px; box-shadow:0 10px 24px rgba(0,0,0,.25);
-    }
-    h1{margin:0 0 10px; font-size:clamp(24px,4vw,32px)}
-    p{margin:10px 0; color:var(--text)}
-    .lead{color:var(--muted)}
-
-    /* Floating actions */
-    .fab{position:fixed; right:18px; bottom:18px; display:flex; flex-direction:column; gap:10px; z-index:20;}
-    .fab a{width:54px; height:54px; border-radius:50%; display:grid; place-items:center; background:#25D366; color:#fff; text-decoration:none; box-shadow:0 8px 22px rgba(37,211,102,.35); font-weight:700; border:1px solid rgba(0,0,0,.2);}
-    .fab a.mail{background:#5865f2; box-shadow:0 8px 22px rgba(88,101,242,.35)}
-    .fab svg{width:26px; height:26px; fill:#fff}
-
-    footer{max-width:1100px;margin:0 auto;padding:12px 20px 40px;color:var(--muted);font-size:.9rem}
-    a.link{color:var(--accent); text-decoration:none}
-  </style>
+  <meta name="description" content="Fábrica de armazones en Córdoba. Modelos, descargas y garantía.">
+  <meta property="og:title" content="SKYBLACKY® – gafas y armazones">
+  <meta property="og:description" content="Fábrica de armazones en Córdoba. Modelos, descargas y garantía.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="wrap">
-      <a class="brand" href="#" aria-label="Inicio SKYBLACKY">
-        <img class="logo-img" src="./logo-skyblack.jpg" alt="Logo SKYBLACKY" />
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio">
+        <img class="logo" src="assets/img/logo-skyblack.jpg" alt="Logo SKYBLACKY" />
         <span>
-          <strong>SKYBLACKY® – gafas y armazones</strong>
-          <small>Calidad y diseño</small>
+          <div class="title">SKYBLACKY® – gafas y armazones</div>
+          <small class="sub">Calidad y diseño</small>
         </span>
       </a>
-      <nav>
-        <button class="btn" data-section="Sobre nosotros">Sobre nosotros</button>
-        <button class="btn" data-section="Modelos">Modelos</button>
-        <button class="btn" data-section="Otros">Otros</button>
-        <button class="btn" data-section="Descargas">Descargas</button>
+      <nav class="nav">
+        <a href="#sobre">Sobre nosotros</a>
+        <a href="#modelos">Modelos</a>
+        <a href="#descargas">Descargas</a>
+        <a href="#garantia">Garantía</a>
+        <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <!-- CUERPO (se mantiene el texto) -->
-  <main>
-    <article class="card">
-      <h1>Sobre nosotros</h1>
-      <p>Somos una empresa con más de 40 años en el mercado, distribuyendo productos ópticos. A mediados de 2022 decidimos fabricar en Córdoba nuestra propia línea de armazones. Alejandro Cristaldo fue el encargado del desarrollo de los modelos y de las matrices, que importamos después de mucho esfuerzo. A mediados de 2023 lanzamos las primeras pruebas y hoy contamos con gran orgullo  de 12 modelos en más de quince colores. Hemos logrado una línea que se destaca por su calidad, diseño y precio, la cual comercializamos en todo el país.</p>
-    </article>
-  </main>
+  <section id="inicio" class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <h1>Armazones hechos en Córdoba</h1>
+        <p>Más de 40 años en óptica. Línea propia con 12 modelos y +20 colores.</p>
+        <div class="cta">
+          <a class="btn whatsapp" href="https://wa.me/5493516790073" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn mail" href="mailto:skyblack@robertocristaldo.com.ar">Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Floating WhatsApp & Email -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <article class="card">
+        <h2>Sobre nosotros</h2>
+        <p>Somos una empresa con más de 40 años en el mercado, distribuyendo productos ópticos. A mediados de 2022 decidimos fabricar en Córdoba nuestra propia línea de armazones. Alejandro Cristaldo fue el encargado del desarrollo de los modelos y de las matrices, que importamos después de mucho esfuerzo. A mediados de 2023 lanzamos las primeras pruebas y hoy contamos con 12 modelos en más de veinte colores. Hemos logrado una línea que se destaca por su calidad, diseño y precio, y que se comercializa en todo el país.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="modelos" class="section">
+    <div class="container">
+      <article class="card">
+        <h2>Modelos</h2>
+        <p>Galería en preparación. Agregá tus fotos en <code>assets/img/modelos/</code> y actualizá los ítems.</p>
+        <div class="gallery">
+          <figure><div class="ph">Modelo 1</div><figcaption>Próximamente</figcaption></figure><figure><div class="ph">Modelo 2</div><figcaption>Próximamente</figcaption></figure><figure><div class="ph">Modelo 3</div><figcaption>Próximamente</figcaption></figure><figure><div class="ph">Modelo 4</div><figcaption>Próximamente</figcaption></figure><figure><div class="ph">Modelo 5</div><figcaption>Próximamente</figcaption></figure><figure><div class="ph">Modelo 6</div><figcaption>Próximamente</figcaption></figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="descargas" class="section">
+    <div class="container">
+      <article class="card">
+        <h2>Descargas</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Catálogo general (PDF)</h3>
+            <p>Próximamente.</p>
+          </div>
+          <div class="card">
+            <h3>Fichas técnicas</h3>
+            <p>Próximamente.</p>
+          </div>
+          <div class="card">
+            <h3>Garantía</h3>
+            <p>El texto legal está disponible más abajo y se podrá descargar como PDF en breve.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="garantia" class="section">
+    <div class="container">
+      <article class="card">
+        <h2>Garantía (Argentina)</h2>
+        
+<p><strong>1) Ámbito y plazo de la garantía legal.</strong> SKYBLACKY otorga la garantía legal mínima prevista por la Ley 24.240: <strong>6 (seis) meses</strong> desde la entrega para bienes nuevos y <strong>3 (tres) meses</strong> para bienes usados. Las partes pueden convenir un plazo mayor.</p>
+<p><strong>2) Cobertura.</strong> Cubre defectos de fabricación y/o vicios de material o proceso que afecten la aptitud del producto para su uso normal. Excluye daños por golpes, caídas, torsiones, uso indebido, falta de mantenimiento, exposición a calor o químicos, desgaste natural por uso, intervención de terceros no autorizados e instalación/ajustes fuera de especificación. Esta garantía se suma a los derechos del consumidor previstos por la Ley 24.240.</p>
+<p><strong>3) Responsables solidarios.</strong> Son solidariamente responsables del otorgamiento y cumplimiento de la garantía legal los productores, importadores, distribuidores y vendedores.</p>
+<p><strong>4) Servicio técnico y repuestos.</strong> El proveedor debe asegurar un servicio técnico adecuado y el suministro de partes y repuestos.</p>
+<p><strong>5) Traslados y gastos.</strong> Si la cosa debe trasladarse a fábrica o taller habilitado, el transporte será realizado por el responsable de la garantía, y a su cargo quedarán los gastos de flete, seguros y cualquier otro necesario para su ejecución.</p>
+<p><strong>6) Constancia de reparación.</strong> Cada reparación bajo garantía deberá documentarse con constancia que indique la naturaleza de la reparación, piezas reemplazadas o reparadas y fechas de ingreso y devolución del producto.</p>
+<p><strong>7) Prolongación del plazo.</strong> El tiempo en que el consumidor esté privado del uso del producto por causas relacionadas con la reparación se computa como prolongación del plazo de garantía.</p>
+<p><strong>8) Reparación no satisfactoria.</strong> Si la reparación no resulta satisfactoria, el consumidor puede optar por: a) sustitución por otra cosa de idénticas características; b) devolución del precio al valor actual; o c) nueva reparación sin cargo.</p>
+<p><strong>9) Gestión.</strong> Para iniciar un reclamo por garantía legal, presentá el comprobante de compra y contactanos por <a class="link" href="https://wa.me/5493516790073" target="_blank" rel="noopener">WhatsApp</a> o por correo a <a class="link" href="mailto:skyblack@robertocristaldo.com.ar">skyblack@robertocristaldo.com.ar</a>.</p>
+
+      </article>
+    </div>
+  </section>
+
+  <section id="contacto" class="section">
+    <div class="container">
+      <article class="card">
+        <h2>Contacto</h2>
+        <p>Escribinos por WhatsApp o email, o dejá tu consulta:</p>
+        <form class="form" action="mailto:skyblack@robertocristaldo.com.ar" method="post" enctype="text/plain">
+          <input class="input" name="nombre" placeholder="Nombre" required>
+          <input class="input" type="email" name="email" placeholder="Email" required>
+          <textarea class="textarea" name="mensaje" placeholder="Mensaje" required></textarea>
+          <button class="submit" type="submit">Enviar</button>
+        </form>
+      </article>
+    </div>
+  </section>
+
   <div class="fab" aria-label="Acciones rápidas">
     <a title="WhatsApp" target="_blank" rel="noopener" href="https://wa.me/5493516790073">
       <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.46c-.28-.14-1.63-.8-1.88-.89-.25-.1-.43-.14-.62.14-.19.28-.71.88-.87 1.06-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.24-1.37-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.12-.12.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.06-.22-.53-.43-.46-.62-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.74.34-.25.28-.98.96-.98 2.34s1 2.72 1.14 2.9c.14.18 1.97 3.02 4.77 4.23.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.63-.67 1.86-1.32.23-.65.23-1.21.16-1.32-.07-.11-.25-.18-.52-.32zM27.5 16c0 6.35-5.15 11.5-11.5 11.5-2.01 0-3.9-.52-5.53-1.43L4.5 27.5l1.5-5.89C4.95 19.98 4.5 18.05 4.5 16 4.5 9.65 9.65 4.5 16 4.5S27.5 9.65 27.5 16zm-2.16 0c0-5.16-4.18-9.34-9.34-9.34S6.66 10.84 6.66 16c0 1.94.6 3.74 1.62 5.21l-1.06 3.87 3.97-1.04A9.313 9.313 0 0 0 25.34 16z"/></svg>
@@ -105,14 +130,14 @@
     </a>
   </div>
 
-  <footer>
-    © <span id="year"></span> SKYBLACKY – gafas y armazones ·
-    <a class="link" href="https://wa.me/5493516790073" target="_blank" rel="noopener">WhatsApp</a> ·
-    <a class="link" href="mailto:skyblack@robertocristaldo.com.ar">skyblack@robertocristaldo.com.ar</a>
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> SKYBLACKY – gafas y armazones ·
+      <a class="link" href="https://wa.me/5493516790073" target="_blank" rel="noopener">WhatsApp</a> ·
+      <a class="link" href="mailto:skyblack@robertocristaldo.com.ar">skyblack@robertocristaldo.com.ar</a>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
