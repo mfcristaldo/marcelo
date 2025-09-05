@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,7 +21,6 @@
             top: 0;
             left: 0;
             width: 100%;
-            /* Degradado de azul oscuro a azul más claro */
             background: linear-gradient(to right, #1A2F4A, #284464);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
             display: flex;
@@ -57,7 +57,7 @@
         }
 
         .menu-list a:hover {
-            color: #00BCD4; /* Cian brillante para el efecto hover */
+            color: #00BCD4;
         }
         
         .menu-list a svg {
@@ -75,7 +75,7 @@
         }
 
         .initial-card {
-            background-color: #1A2F4A; /* Azul oscuro para las tarjetas */
+            background-color: #1A2F4A;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             padding: 20px;
@@ -91,7 +91,6 @@
 
         /* Pie de página */
         .footer {
-            /* Degradado de azul oscuro a azul más claro */
             background: linear-gradient(to right, #1A2F4A, #284464);
             text-align: center;
             padding: 10px;
@@ -103,7 +102,7 @@
         }
 
         .footer a {
-            color: #00BCD4; /* Cian brillante para enlaces en el pie de página */
+            color: #00BCD4;
             text-decoration: none;
             margin: 0 10px;
         }
@@ -142,11 +141,11 @@
         }
 
         .whatsapp-btn {
-            background-color: #25d366; /* Color de WhatsApp original */
+            background-color: #25d366;
         }
 
         .email-btn {
-            background-color: #007bff; /* Color de Email original */
+            background-color: #007bff;
         }
 
         /* Contenido de secciones */
@@ -160,35 +159,56 @@
             text-align: left;
         }
 
-        /* Estilos de la grilla para la sección "Modelos" */
+        /* Estilos para la nueva grilla de modelos */
         .models-grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
             padding: 20px;
         }
         
-        .names-column, .images-column {
+        .model-item {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
         }
-
-        .names-column h3 {
+        
+        .model-item h3 {
             margin: 0;
             padding: 10px;
             background-color: #1A2F4A;
             border-radius: 8px;
-            text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            width: 100%;
         }
         
-        .images-column img {
+        .model-item img {
             width: 100%;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             object-fit: cover;
+        }
+        
+        .model-item p {
+            margin: 0;
+            padding: 10px;
+            background-color: #1A2F4A;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            width: 100%;
+        }
+
+        .divider {
+            width: 80%;
+            height: 1px;
+            background-color: #E6F1FF;
+            margin: 20px 0;
         }
 
         /* Media Queries para dispositivos móviles */
@@ -210,11 +230,7 @@
             }
 
             .models-grid-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .names-column, .images-column {
-                gap: 10px;
+                gap: 20px;
             }
 
             .floating-actions {
@@ -232,7 +248,6 @@
 </head>
 <body>
 
-    <!-- Encabezado -->
     <div class="header">
         <img src="imagenes/logo.jpg" alt="SKYBLACK Logo" class="logo">
         <span class="menu-title">SKYBLACK®</span>
@@ -249,7 +264,6 @@
         </ul>
     </div>
 
-    <!-- Contenido de las secciones -->
     <div id="home-section" class="content-body">
         <div class="initial-card">
             <img src="imagenes/inicial.jpg" alt="Imagen inicial de SKYBLACK">
@@ -265,8 +279,7 @@
     <div id="models-section" class="content-body" style="display:none;">
         <div class="section-content">
             <div id="models-grid" class="models-grid-container">
-                <!-- El contenido se generará dinámicamente con JavaScript -->
-            </div>
+                </div>
         </div>
     </div>
 
@@ -300,14 +313,12 @@
         </div>
     </div>
     
-    <!-- Pie de página -->
     <div class="footer">
         <span>© 2025 SKYBLACK®. Todos los derechos reservados.</span>
         <a href="https://wa.me/5493516790073">WhatsApp</a> | 
         <a href="mailto:skyblack@robertocristaldo.com.ar">Email</a>
     </div>
 
-    <!-- Botones flotantes -->
     <div class="floating-actions">
         <a href="https://wa.me/5493516790073" class="whatsapp-btn" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -324,7 +335,6 @@
     <script>
         /**
          * Función para mostrar la sección seleccionada y ocultar las demás.
-         * @param {string} sectionId - El ID de la sección a mostrar ('home', 'about', 'models', 'warranty', 'downloads').
          */
         function showSection(sectionId) {
             const sections = ['home', 'about', 'models', 'warranty', 'downloads'];
@@ -339,42 +349,55 @@
         }
 
         /**
-         * Función para generar y cargar la grilla de modelos.
+         * Función para generar la grilla de modelos.
+         * Muestra el nombre, la imagen y la descripción en un formato vertical.
          */
         function loadModels() {
-            // Nombres de los archivos de imagen que comienzan con "imagen"
-            // Se han modificado para mostrar solo dos imágenes.
-            const imageNames = ["imagen1.jpg", "imagen2.jpg"];
+            // Esta es la lista que debes editar.
+            const modelsData = [
+                { nombre: "Modelo Flex 1", nombreArchivo: "imagen1.jpg", descripcion: "Armazón color negro/transparente." },
+                { nombre: "Modelo Flex 2", nombreArchivo: "imagen2.jpg", descripcion: "Armazón de metal con diseño minimalista." },
+                { nombre: "Modelo Flex 3", nombreArchivo: "imagen3.jpg", descripcion: "Lentes de sol con protección UV400." },
+                // Agrega más modelos aquí
+            ];
 
             const gridContainer = document.getElementById('models-grid');
             gridContainer.innerHTML = ''; // Limpiar contenido previo
 
-            const namesColumn = document.createElement('div');
-            namesColumn.className = 'names-column';
+            modelsData.forEach((model, index) => {
+                // Crea un contenedor para cada modelo
+                const modelItem = document.createElement('div');
+                modelItem.className = 'model-item';
 
-            const imagesColumn = document.createElement('div');
-            imagesColumn.className = 'images-column';
+                // Crea el título (nombre del modelo)
+                const modelName = document.createElement('h3');
+                modelName.textContent = model.nombre;
+                modelItem.appendChild(modelName);
+                
+                // Crea el elemento de la imagen
+                const productImg = document.createElement('img');
+                productImg.src = `imagenes/${model.nombreArchivo}`;
+                productImg.alt = `Imagen de ${model.nombre}`;
+                productImg.onerror = function() {
+                    this.src = 'https://placehold.co/400x300/1A2F4A/E6F1FF?text=No+encontrada';
+                };
+                modelItem.appendChild(productImg);
+                
+                // Crea el párrafo de la descripción
+                const productDesc = document.createElement('p');
+                productDesc.textContent = model.descripcion;
+                modelItem.appendChild(productDesc);
+                
+                // Agrega el modelo al contenedor principal
+                gridContainer.appendChild(modelItem);
 
-            imageNames.forEach(imageName => {
-                // Filtramos solo las imágenes que comienzan con "imagen"
-                if (imageName.startsWith("imagen") && imageName.endsWith(".jpg")) {
-                    const productName = document.createElement('h3');
-                    // Obtenemos el nombre del archivo sin la extensión .jpg
-                    productName.textContent = imageName.replace(".jpg", "");
-                    namesColumn.appendChild(productName);
-                    
-                    const productImg = document.createElement('img');
-                    productImg.src = `imagenes/${imageName}`;
-                    productImg.alt = `Imagen de ${imageName}`;
-                    productImg.onerror = function() {
-                        this.src = 'https://placehold.co/400x300/1A2F4A/E6F1FF?text=No+encontrada';
-                    };
-                    imagesColumn.appendChild(productImg);
+                // Agrega un separador, excepto después del último elemento
+                if (index < modelsData.length - 1) {
+                    const divider = document.createElement('hr');
+                    divider.className = 'divider';
+                    gridContainer.appendChild(divider);
                 }
             });
-
-            gridContainer.appendChild(namesColumn);
-            gridContainer.appendChild(imagesColumn);
         }
     </script>
 </body>
