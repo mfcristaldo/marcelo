@@ -191,43 +191,6 @@
             object-fit: cover;
         }
 
-        /* Modal de "Página en construcción" */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            background-color: rgba(0,0,0,0.7); 
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background-color: #1A2F4A;
-            padding: 20px;
-            border: 1px solid #336699;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 400px;
-        }
-        
-        .close-button {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        
-        .close-button:hover,
-        .close-button:focus {
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
         /* Media Queries para dispositivos móviles */
         @media (max-width: 768px) {
             .header {
@@ -379,12 +342,9 @@
          * Función para generar y cargar la grilla de modelos.
          */
         function loadModels() {
-            const models = [
-                { name: "Modelo Flex 1", image: "imagenes/imagen1.jpg" },
-                { name: "Modelo Flex 2", image: "imagenes/imagen2.jpg" },
-                { name: "Modelo Flex 3", image: "imagenes/imagen3.jpg" },
-                { name: "Modelo Flex 4", image: "imagenes/imagen4.jpg" },
-            ];
+            // Nombres de los archivos de imagen en la carpeta 'imagenes'.
+            // Un sitio web estático no puede leer carpetas, por lo que los listamos manualmente.
+            const imageNames = ["imagen1.jpg", "imagen2.jpg", "imagen3.jpg", "imagen4.jpg"];
 
             const gridContainer = document.getElementById('models-grid');
             gridContainer.innerHTML = ''; // Limpiar contenido previo
@@ -395,16 +355,17 @@
             const imagesColumn = document.createElement('div');
             imagesColumn.className = 'images-column';
 
-            models.forEach(model => {
+            imageNames.forEach(imageName => {
                 const productName = document.createElement('h3');
-                productName.textContent = model.name;
+                // El texto del nombre será el nombre del archivo.
+                productName.textContent = imageName;
                 namesColumn.appendChild(productName);
                 
                 const productImg = document.createElement('img');
-                productImg.src = model.image;
-                productImg.alt = `Imagen de ${model.name}`;
+                // La ruta de la imagen se construye dinámicamente.
+                productImg.src = `imagenes/${imageName}`;
+                productImg.alt = `Imagen de ${imageName}`;
                 productImg.onerror = function() {
-                    // Cargar una imagen de marcador de posición si la original no se encuentra
                     this.src = 'https://placehold.co/400x300/1A2F4A/E6F1FF?text=No+encontrada';
                 };
                 imagesColumn.appendChild(productImg);
@@ -416,3 +377,5 @@
     </script>
 </body>
 </html>
+
+  
