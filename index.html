@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKYBLACK®</title>
+    <style>
+        /* Estilos generales - Gama de azules */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #0A192F; /* Azul muy oscuro */
+            color: #E6F1FF; /* Azul claro para el texto */
+            font-size: 14px;
+        }
+
+        /* Encabezado fijo */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* Degradado de azul oscuro a azul más claro */
+            background: linear-gradient(to right, #1A2F4A, #284464);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            gap: 30px;
+            z-index: 1000;
+        }
+
+        .header .logo {
+            height: 40px;
+        }
+
+        .header .menu-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #E6F1FF;
+        }
+
+        .menu-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu-list a {
+            text-decoration: none;
+            color: #E6F1FF;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1em;
+        }
+
+        .menu-list a:hover {
+            color: #00BCD4; /* Cian brillante para el efecto hover */
+        }
+        
+        .menu-list a svg {
+            fill: currentColor;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+        }
+
+        /* Cuerpo de la página */
+        .content-body {
+            padding-top: 80px;
+            text-align: center;
+            padding: 80px 20px 20px;
+        }
+
+        .initial-card {
+            background-color: #1A2F4A; /* Azul oscuro para las tarjetas */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        .initial-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Pie de página */
+        .footer {
+            /* Degradado de azul oscuro a azul más claro */
+            background: linear-gradient(to right, #1A2F4A, #284464);
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+            font-size: 12px;
+        }
+
+        .footer a {
+            color: #00BCD4; /* Cian brillante para enlaces en el pie de página */
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Botones flotantes */
+        .floating-actions {
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .floating-actions a {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .floating-actions a svg {
+            width: 30px;
+            height: 30px;
+            fill: #ffffff;
+        }
+
+        .floating-actions a:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn {
+            background-color: #25d366; /* Color de WhatsApp original */
+        }
+
+        .email-btn {
+            background-color: #007bff; /* Color de Email original */
+        }
+
+        /* Contenido de secciones */
+        .section-content {
+            background-color: #1A2F4A;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        /* Estilos de la grilla para la sección "Modelos" */
+        .models-grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .names-column, .images-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .names-column h3 {
+            margin: 0;
+            padding: 10px;
+            background-color: #1A2F4A;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .images-column img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+        }
+
+        /* Modal de "Página en construcción" */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.7); 
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: #1A2F4A;
+            padding: 20px;
+            border: 1px solid #336699;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+        }
+        
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close-button:hover,
+        .close-button:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <div class="header">
+        <img src="imagenes/logo.jpg" alt="SKYBLACK Logo" class="logo">
+        <span class="menu-title">SKYBLACK®</span>
+        <ul class="menu-list">
+            <li><a href="#" onclick="showSection('home')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <path d="M12 5.69L17 10.19V18H15V12H9V18H7V10.19L12 5.69ZM12 3L2 12H5V20H11V14H13V20H19V12H22L12 3Z"/>
+                </svg>
+            </a></li>
+            <li><a href="#" onclick="showSection('about')">Sobre nosotros</a></li>
+            <li><a href="#" onclick="showSection('models')">Modelos</a></li>
+            <li><a href="#" onclick="showSection('warranty')">Garantía</a></li>
+            <li><a href="#" onclick="showSection('downloads')">Descargas</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenido de las secciones -->
+    <div id="home-section" class="content-body">
+        <div class="initial-card">
+            <img src="imagenes/inicial.jpg" alt="Imagen inicial de SKYBLACK">
+        </div>
+    </div>
+    
+    <div id="about-section" class="content-body" style="display:none;">
+        <div class="section-content">
+            <p>Somos una empresa con más de 40 años en el mercado, distribuyendo productos ópticos. A mediados de 2022 decidimos empezar a fabricar en Córdoba nuestra línea de armazones. Alejandro Cristaldo fue el encargado del desarrollo de los modelos y de las matrices, que importamos después de mucho esfuerzo. A mediados de 2023 lanzamos las primeras pruebas y hoy contamos con 12 modelos en más de veinte colores. Hemos logrado una línea que se destaca por su calidad, diseño y precio. Gracias a nuestros distribuidores y aliados, hoy se comercializa en todo el país.</p>
+        </div>
+    </div>
+    
+    <div id="models-section" class="content-body" style="display:none;">
+        <div class="section-content">
+            <div id="models-grid" class="models-grid-container">
+                <!-- El contenido se generará dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div id="warranty-section" class="content-body" style="display:none;">
+        <div class="section-content">
+            <h3>Garantía SKYBLACK (Argentina)</h3>
+            <h4>Ámbito y plazo de la garantía legal</h4>
+            <p>SKYBLACK otorga la garantía legal mínima prevista por la Ley 24.240: 6 (seis) meses desde la entrega para bienes nuevos.</p>
+            <h4>Cobertura</h4>
+            <p>La garantía legal cubre defectos de fabricación y/o vicios de material o proceso que afecten la aptitud del producto para su uso normal.</p>
+            <p>Quedan <b>excluidos</b> daños por golpes, caídas, torsiones, uso indebido, falta de mantenimiento, exposición a calor/químicos, desgaste natural por uso, intervención de terceros no autorizados o instalación/ajustes fuera de especificación.</p>
+            <p>Esta garantía se suma a los derechos irrenunciables del consumidor previstos por la Ley 24.240.</p>
+            <h4>Responsables solidarios</h4>
+            <p>Son solidariamente responsables del otorgamiento y cumplimiento de la garantía legal los productores, importadores, distribuidores y vendedores.</p>
+            <h4>Servicio técnico y repuestos</h4>
+            <p>El proveedor debe asegurar un servicio técnico adecuado y el suministro de partes y repuestos durante el tiempo que corresponda.</p>
+            <h4>Constancia de reparación</h4>
+            <p>Cada reparación efectuada bajo garantía deberá documentarse mediante una constancia de reparación que indique, como mínimo: la naturaleza de la reparación, piezas reemplazadas o reparadas, y fechas de ingreso y devolución del producto.</p>
+            <h4>Cómo gestionar la garantía</h4>
+            <ol>
+                <li>Presentá <b>comprobante de compra</b>.</li>
+                <li>Contactanos por <b>mail</b> (skyblack@robertocristaldo.com.ar).</li>
+                <li>El producto será evaluado por el servicio técnico. Si corresponde, se procederá según corresponda.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="downloads-section" class="content-body" style="display:none;">
+        <div class="section-content" style="text-align: center;">
+            <p><a href="catalogo.pdf" target="_blank" style="color: #00BCD4;">Link de descarga catalogo.pdf</a></p>
+        </div>
+    </div>
+    
+    <!-- Pie de página -->
+    <div class="footer">
+        <span>© 2025 SKYBLACK®. Todos los derechos reservados.</span>
+        <a href="https://wa.me/5493516790073">WhatsApp</a> | 
+        <a href="mailto:skyblack@robertocristaldo.com.ar">Email</a>
+    </div>
+
+    <!-- Botones flotantes -->
+    <div class="floating-actions">
+        <a href="https://wa.me/5493516790073" class="whatsapp-btn" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12.04 2.1c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.35 4.95l-1.4 5.17 5.25-1.37c1.45.79 3.08 1.21 4.71 1.21h.02c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm0 1.62c4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24c-1.48 0-2.9-.39-4.15-1.15l-.29-.17-3.04.79.8-2.96-.19-.31c-.84-1.45-1.28-3.11-1.28-4.8 0-4.54 3.7-8.24 8.24-8.24zm4.27 10.93c-.23-.11-.9-.45-1.04-.5c-.14-.06-.24-.09-.34.09-.1.18-.39.46-.48.55-.1.09-.19.1-.37.05s-.77-.28-1.47-.9c-.54-.48-.91-1.07-1.02-1.26-.11-.19-.01-.29.09-.38.08-.08.18-.19.27-.29.09-.1.12-.17.18-.32.06-.14.03-.26-.01-.36s-.34-.82-.48-1.18c-.14-.35-.29-.3-.39-.31h-.32c-.1-.01-.21-.01-.32.01-.11.02-.41.15-1.26 1.05-.84.9-1.37 1.95-1.37 2.12.01.18.39.6.45.64.07.04.83 1.29 2.01 1.83 1.18.55 1.76.71 2.37.79.59.08 1.12.05 1.54.03.42-.02 1.03-.43 1.18-.87.16-.43.16-.8.11-.87-.05-.07-.15-.11-.3-.18z"/>
+            </svg>
+        </a>
+        <a href="mailto:skyblack@robertocristaldo.com.ar" class="email-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        /**
+         * Función para mostrar la sección seleccionada y ocultar las demás.
+         * @param {string} sectionId - El ID de la sección a mostrar ('home', 'about', 'models', 'warranty', 'downloads').
+         */
+        function showSection(sectionId) {
+            const sections = ['home', 'about', 'models', 'warranty', 'downloads'];
+            sections.forEach(id => {
+                document.getElementById(id + '-section').style.display = 'none';
+            });
+            document.getElementById(sectionId + '-section').style.display = 'block';
+
+            if (sectionId === 'models') {
+                loadModels();
+            }
+        }
+
+        /**
+         * Función para generar y cargar la grilla de modelos.
+         */
+        function loadModels() {
+            const models = [
+                { name: "Modelo 1", image: "imagenes/imagen1.jpg" },
+                { name: "Modelo 2", image: "imagenes/imagen2.jpg" },
+                { name: "Modelo 3", image: "imagenes/imagen3.jpg" },
+                { name: "Modelo 4", image: "imagenes/imagen4.jpg" },
+            ];
+
+            const gridContainer = document.getElementById('models-grid');
+            gridContainer.innerHTML = ''; // Limpiar contenido previo
+
+            const namesColumn = document.createElement('div');
+            namesColumn.className = 'names-column';
+
+            const imagesColumn = document.createElement('div');
+            imagesColumn.className = 'images-column';
+
+            models.forEach(model => {
+                const productName = document.createElement('h3');
+                productName.textContent = model.name;
+                namesColumn.appendChild(productName);
+                
+                const productImg = document.createElement('img');
+                productImg.src = model.image;
+                productImg.alt = `Imagen de ${model.name}`;
+                productImg.onerror = function() {
+                    // Cargar una imagen de marcador de posición si la original no se encuentra
+                    this.src = 'https://placehold.co/400x300/1A2F4A/E6F1FF?text=No+encontrada';
+                };
+                imagesColumn.appendChild(productImg);
+            });
+
+            gridContainer.appendChild(namesColumn);
+            gridContainer.appendChild(imagesColumn);
+        }
+    </script>
+</body>
+</html>
