@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -223,19 +224,46 @@
             justify-content: center;
             align-items: center;
             z-index: 2000;
-            cursor: pointer;
+            /* cursor: pointer; */ /* Eliminado para que el cursor no esté siempre de cierre */
         }
 
         .lightbox.active {
             display: flex;
         }
 
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
+        .lightbox-content {
+            position: relative; /* Para posicionar el botón de cierre */
+            display: flex; /* Para centrar la imagen dentro del contenido del lightbox */
+            justify-content: center;
+            align-items: center;
+            max-width: 95%; /* Máximo 95% del ancho de la pantalla */
+            max-height: 95%; /* Máximo 95% de la altura de la pantalla */
+        }
+
+        .lightbox-content img {
+            max-width: 100%; /* La imagen ocupará el 100% del contenedor lightbox-content */
+            max-height: 100%; /* La imagen ocupará el 100% del contenedor lightbox-content */
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
             object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #E6F1FF;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001; /* Asegura que esté por encima de la imagen */
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+
+        .lightbox-close:hover {
+            color: #00BCD4;
         }
 
 
@@ -360,8 +388,11 @@
         </a>
     </div>
 
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="" alt="Imagen ampliada">
+    <div id="lightbox" class="lightbox" >
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="Imagen ampliada">
+        </div>
     </div>
 
     <script>
@@ -386,11 +417,20 @@
         function loadModels() {
             // Esta es la lista que debes editar.
             const modelsData = [
-                { nombre: "Modelo Flex 1", nombreArchivo: "imagen1.jpg", descripcion: "Armazón color negro/transparente." },
-                { nombre: "Modelo Flex 2", nombreArchivo: "imagen2.jpg", descripcion: "Armazón de metal con diseño minimalista." },
-                { nombre: "Modelo Flex 3", nombreArchivo: "imagen3.jpg", descripcion: "Lentes de sol con protección UV400." },
-                { nombre: "Modelo Flex 4", nombreArchivo: "imagen4.jpg", descripcion: "Montura de lectura con acabado mate." },
-                { nombre: "Modelo Flex 5", nombreArchivo: "imagen5.jpg", descripcion: "Gafas de diseño urbano, ligeras y resistentes." }
+                { nombre: "Modelo Flex 1", nombreArchivo: "imagen1.jpg", descripcion: "Armazón color Azul/transparente." },
+                { nombre: "Modelo Flex 2", nombreArchivo: "imagen2.jpg", descripcion: "Armazón color Verde/negro." },
+                { nombre: "Modelo Flex 3", nombreArchivo: "imagen3.jpg", descripcion: "Armazón color rosa/transparente." },
+                { nombre: "Modelo Flex 4", nombreArchivo: "imagen4.jpg", descripcion: "Armazón color Azul/Azul." },
+                { nombre: "Modelo Flex 5", nombreArchivo: "imagen5.jpg", descripcion: "Armazón color Azul/Negro." },
+                { nombre: "Modelo Flex 6", nombreArchivo: "imagen6.jpg", descripcion: "Armazón color Negro/Negro." },
+                { nombre: "Modelo Flex 7", nombreArchivo: "imagen7.jpg", descripcion: "Armazón color Violeta/transparente." },
+                { nombre: "Modelo Flex 8", nombreArchivo: "imagen8.jpg", descripcion: "Armazón color Negro/Negro." },
+                { nombre: "Modelo Flex 9", nombreArchivo: "imagen9.jpg", descripcion: "Armazón color negro/transparente." },
+                { nombre: "Modelo Flex 10", nombreArchivo: "imagen10.jpg", descripcion: "Armazón color Azul/negro." },
+                { nombre: "Modelo Flex 11", nombreArchivo: "imagen11.jpg", descripcion: "Armazón color Verde T/Transparente." },
+                { nombre: "Modelo Flex 12", nombreArchivo: "imagen12.jpg", descripcion: "Armazón color Rosa/Negro." },
+              
+                
             ];
 
             const gridContainer = document.getElementById('models-grid');
@@ -412,7 +452,11 @@
                 };
                 
                 // Agrega el evento click para abrir el lightbox
-                productImg.onclick = () => openLightbox(productImg.src);
+                // importante: usa event.stopPropagation() para que el clic en la imagen no cierre el lightbox inmediatamente
+                productImg.onclick = (event) => {
+                    event.stopPropagation(); // Evita que el clic en la imagen se propague al fondo del lightbox
+                    openLightbox(productImg.src);
+                };
                 modelItem.appendChild(productImg);
                 
                 const productDesc = document.createElement('p');
@@ -447,6 +491,14 @@
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('active');
         }
+
+        // Para cerrar el lightbox haciendo clic en el fondo oscuro
+        document.getElementById('lightbox').addEventListener('click', function(event) {
+            // Si el clic fue directamente en el fondo del lightbox (y no en la imagen o el botón de cierre)
+            if (event.target === this) {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 </html>
