@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -174,7 +173,7 @@
             align-items: center;
             gap: 10px;
             width: 100%;
-            max-width: 400px; /* Ancho máximo para cada elemento de modelo */
+            max-width: 400px;
             text-align: center;
         }
         
@@ -193,7 +192,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             object-fit: cover;
-            cursor: pointer; /* Indica que la imagen es clicable */
+            cursor: pointer;
         }
         
         .model-item p {
@@ -214,29 +213,29 @@
 
         /* Estilos para el Lightbox */
         .lightbox {
-            display: none; /* Oculto por defecto */
-            position: fixed; /* Fijo en la pantalla */
+            display: none;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+            background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
-            z-index: 2000; /* Por encima de todo lo demás */
-            cursor: pointer; /* Para indicar que se puede cerrar haciendo clic */
+            z-index: 2000;
+            cursor: pointer;
         }
 
         .lightbox.active {
-            display: flex; /* Mostrar cuando está activo */
+            display: flex;
         }
 
         .lightbox img {
-            max-width: 90%; /* Máximo 90% del ancho de la pantalla */
-            max-height: 90%; /* Máximo 90% de la altura de la pantalla */
+            max-width: 90%;
+            max-height: 90%;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-            object-fit: contain; /* Asegura que la imagen se vea completa */
+            object-fit: contain;
         }
 
 
@@ -308,7 +307,7 @@
     <div id="models-section" class="content-body" style="display:none;">
         <div class="section-content">
             <div id="models-grid" class="models-grid-container">
-                </div>
+            </div>
         </div>
     </div>
 
@@ -351,4 +350,103 @@
     <div class="floating-actions">
         <a href="https://wa.me/5493516790073" class="whatsapp-btn" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M12.04 2.1c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.35 4.95l-1.4 5.17 5.25-1.37c1.45.79 3.08 1.21 4.71 1.2
+                <path d="M12.04 2.1c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.35 4.95l-1.4 5.17 5.25-1.37c1.45.79 3.08 1.21 4.71 1.21h.02c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm0 1.62c4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24c-1.48 0-2.9-.39-4.15-1.15l-.29-.17-3.04.79.8-2.96-.19-.31c-.84-1.45-1.28-3.11-1.28-4.8 0-4.54 3.7-8.24 8.24-8.24zm4.27 10.93c-.23-.11-.9-.45-1.04-.5c-.14-.06-.24-.09-.34.09-.1.18-.39.46-.48.55-.1.09-.19.1-.37.05s-.77-.28-1.47-.9c-.54-.48-.91-1.07-1.02-1.26-.11-.19-.01-.29.09-.38.08-.08.18-.19.27-.29.09-.1.12-.17.18-.32.06-.14.03-.26-.01-.36s-.34-.82-.48-1.18c-.14-.35-.29-.3-.39-.31h-.32c-.1-.01-.21-.01-.32.01-.11.02-.41.15-1.26 1.05-.84.9-1.37 1.95-1.37 2.12.01.18.39.6.45.64.07.04.83 1.29 2.01 1.83 1.18.55 1.76.71 2.37.79.59.08 1.12.05 1.54.03.42-.02 1.03-.43 1.18-.87.16-.43.16-.8.11-.87-.05-.07-.15-.11-.3-.18z"/>
+            </svg>
+        </a>
+        <a href="mailto:skyblack@robertocristaldo.com.ar" class="email-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+            </svg>
+        </a>
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Imagen ampliada">
+    </div>
+
+    <script>
+        /**
+         * Función para mostrar la sección seleccionada y ocultar las demás.
+         */
+        function showSection(sectionId) {
+            const sections = ['home', 'about', 'models', 'warranty', 'downloads'];
+            sections.forEach(id => {
+                document.getElementById(id + '-section').style.display = 'none';
+            });
+            document.getElementById(sectionId + '-section').style.display = 'block';
+
+            if (sectionId === 'models') {
+                loadModels();
+            }
+        }
+
+        /**
+         * Función para generar la grilla de modelos.
+         */
+        function loadModels() {
+            // Esta es la lista que debes editar.
+            const modelsData = [
+                { nombre: "Modelo Flex 1", nombreArchivo: "imagen1.jpg", descripcion: "Armazón color negro/transparente." },
+                { nombre: "Modelo Flex 2", nombreArchivo: "imagen2.jpg", descripcion: "Armazón de metal con diseño minimalista." },
+                { nombre: "Modelo Flex 3", nombreArchivo: "imagen3.jpg", descripcion: "Lentes de sol con protección UV400." },
+                { nombre: "Modelo Flex 4", nombreArchivo: "imagen4.jpg", descripcion: "Montura de lectura con acabado mate." },
+                { nombre: "Modelo Flex 5", nombreArchivo: "imagen5.jpg", descripcion: "Gafas de diseño urbano, ligeras y resistentes." }
+            ];
+
+            const gridContainer = document.getElementById('models-grid');
+            gridContainer.innerHTML = ''; // Limpiar contenido previo
+
+            modelsData.forEach((model, index) => {
+                const modelItem = document.createElement('div');
+                modelItem.className = 'model-item';
+
+                const modelName = document.createElement('h3');
+                modelName.textContent = model.nombre;
+                modelItem.appendChild(modelName);
+                
+                const productImg = document.createElement('img');
+                productImg.src = `imagenes/${model.nombreArchivo}`;
+                productImg.alt = `Imagen de ${model.nombre}`;
+                productImg.onerror = function() {
+                    this.src = 'https://placehold.co/400x300/1A2F4A/E6F1FF?text=No+encontrada';
+                };
+                
+                // Agrega el evento click para abrir el lightbox
+                productImg.onclick = () => openLightbox(productImg.src);
+                modelItem.appendChild(productImg);
+                
+                const productDesc = document.createElement('p');
+                productDesc.textContent = model.descripcion;
+                modelItem.appendChild(productDesc);
+                
+                gridContainer.appendChild(modelItem);
+
+                if (index < modelsData.length - 1) {
+                    const divider = document.createElement('hr');
+                    divider.className = 'divider';
+                    gridContainer.appendChild(divider);
+                }
+            });
+        }
+
+        /**
+         * Abre el lightbox con la imagen seleccionada.
+         * @param {string} imgSrc - La URL de la imagen a mostrar.
+         */
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+        }
+
+        /**
+         * Cierra el lightbox.
+         */
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
