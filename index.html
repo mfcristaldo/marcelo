@@ -342,9 +342,9 @@
          * Función para generar y cargar la grilla de modelos.
          */
         function loadModels() {
-            // Nombres de los archivos de imagen en la carpeta 'imagenes'.
-            // Un sitio web estático no puede leer carpetas, por lo que los listamos manualmente.
-            const imageNames = ["imagen1.jpg", "imagen2.jpg", "imagen3.jpg", "imagen4.jpg"];
+            // Nombres de los archivos de imagen que comienzan con "imagen"
+            // Se han modificado para mostrar solo dos imágenes.
+            const imageNames = ["imagen1.jpg", "imagen2.jpg"];
 
             const gridContainer = document.getElementById('models-grid');
             gridContainer.innerHTML = ''; // Limpiar contenido previo
@@ -356,19 +356,21 @@
             imagesColumn.className = 'images-column';
 
             imageNames.forEach(imageName => {
-                const productName = document.createElement('h3');
-                // El texto del nombre será el nombre del archivo.
-                productName.textContent = imageName;
-                namesColumn.appendChild(productName);
-                
-                const productImg = document.createElement('img');
-                // La ruta de la imagen se construye dinámicamente.
-                productImg.src = `imagenes/${imageName}`;
-                productImg.alt = `Imagen de ${imageName}`;
-                productImg.onerror = function() {
-                    this.src = 'https://placehold.co/400x300/1A2F4A/E6F1FF?text=No+encontrada';
-                };
-                imagesColumn.appendChild(productImg);
+                // Filtramos solo las imágenes que comienzan con "imagen"
+                if (imageName.startsWith("imagen") && imageName.endsWith(".jpg")) {
+                    const productName = document.createElement('h3');
+                    // Obtenemos el nombre del archivo sin la extensión .jpg
+                    productName.textContent = imageName.replace(".jpg", "");
+                    namesColumn.appendChild(productName);
+                    
+                    const productImg = document.createElement('img');
+                    productImg.src = `imagenes/${imageName}`;
+                    productImg.alt = `Imagen de ${imageName}`;
+                    productImg.onerror = function() {
+                        this.src = 'https://placehold.co/400x300/1A2F4A/E6F1FF?text=No+encontrada';
+                    };
+                    imagesColumn.appendChild(productImg);
+                }
             });
 
             gridContainer.appendChild(namesColumn);
@@ -377,5 +379,3 @@
     </script>
 </body>
 </html>
-
-  
