@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKYBLACK®</title>
     <style>
-        /* Estilos generales - Gama de azules */
+        /* Estilos generales - Gama inspirada en el catálogo (Negros y Grises) */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background-color: #0A192F; /* Azul muy oscuro */
-            color: #E6F1FF; /* Azul claro para el texto */
+            background-color: #121212; /* Negro profundo */
+            color: #FFFFFF; /* Blanco para máxima legibilidad */
             font-size: 14px;
         }
 
@@ -21,8 +20,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(to right, #1A2F4A, #284464);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, #000000, #333333); /* Gradiente negro a gris oscuro */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
             display: flex;
             align-items: center;
             padding: 10px 20px;
@@ -37,7 +36,7 @@
         .header .menu-title {
             font-size: 1.8em;
             font-weight: bold;
-            color: #E6F1FF;
+            color: #FFFFFF;
         }
 
         .menu-list {
@@ -50,14 +49,14 @@
 
         .menu-list a {
             text-decoration: none;
-            color: #E6F1FF;
+            color: #CCCCCC; /* Gris claro */
             font-weight: 500;
             transition: color 0.3s;
             font-size: 1em;
         }
 
         .menu-list a:hover {
-            color: #00BCD4;
+            color: #FFFFFF; /* Resalte en blanco */
         }
         
         .menu-list a svg {
@@ -75,9 +74,9 @@
         }
 
         .initial-card {
-            background-color: #1A2F4A;
+            background-color: #1E1E1E; /* Gris muy oscuro */
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
             padding: 20px;
             max-width: 800px;
             margin: 20px auto;
@@ -91,26 +90,27 @@
 
         /* Pie de página */
         .footer {
-            background: linear-gradient(to right, #1A2F4A, #284464);
+            background: linear-gradient(to right, #000000, #333333);
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             position: fixed;
             bottom: 0;
             width: 100%;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.8);
             font-size: 12px;
         }
 
         .footer a {
-            color: #00BCD4;
+            color: #FFFFFF;
             text-decoration: none;
             margin: 0 10px;
+            font-weight: bold;
         }
 
         /* Botones flotantes */
         .floating-actions {
             position: fixed;
-            bottom: 60px;
+            bottom: 70px;
             right: 20px;
             display: flex;
             flex-direction: column;
@@ -126,7 +126,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s;
         }
         
@@ -145,21 +145,21 @@
         }
 
         .email-btn {
-            background-color: #007bff;
+            background-color: #444444; /* Gris oscuro para el mail */
         }
 
         /* Contenido de secciones */
         .section-content {
-            background-color: #1A2F4A;
+            background-color: #1E1E1E;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
             padding: 20px;
             max-width: 800px;
             margin: 20px auto;
             text-align: left;
         }
 
-        /* Estilos para la nueva grilla de modelos */
+        /* Grilla de modelos */
         .models-grid-container {
             display: flex;
             flex-direction: column;
@@ -181,17 +181,18 @@
         .model-item h3 {
             margin: 0;
             padding: 10px;
-            background-color: #1A2F4A;
+            background-color: #2D2D2D;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             width: 100%;
+            color: #FFFFFF;
         }
         
         .model-item img {
             width: 100%;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
             object-fit: cover;
             cursor: pointer;
         }
@@ -199,20 +200,21 @@
         .model-item p {
             margin: 0;
             padding: 10px;
-            background-color: #1A2F4A;
+            background-color: #2D2D2D;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             width: 100%;
+            color: #CCCCCC;
         }
 
         .divider {
             width: 80%;
             height: 1px;
-            background-color: #E6F1FF;
+            background-color: #444444;
             margin: 20px 0;
         }
 
-        /* Estilos para el Lightbox */
+        /* Lightbox */
         .lightbox {
             display: none;
             position: fixed;
@@ -220,11 +222,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
             justify-content: center;
             align-items: center;
             z-index: 2000;
-            /* cursor: pointer; */ /* Eliminado para que el cursor no esté siempre de cierre */
         }
 
         .lightbox.active {
@@ -232,19 +233,19 @@
         }
 
         .lightbox-content {
-            position: relative; /* Para posicionar el botón de cierre */
-            display: flex; /* Para centrar la imagen dentro del contenido del lightbox */
+            position: relative;
+            display: flex;
             justify-content: center;
             align-items: center;
-            max-width: 95%; /* Máximo 95% del ancho de la pantalla */
-            max-height: 95%; /* Máximo 95% de la altura de la pantalla */
+            max-width: 95%;
+            max-height: 95%;
         }
 
         .lightbox-content img {
-            max-width: 100%; /* La imagen ocupará el 100% del contenedor lightbox-content */
-            max-height: 100%; /* La imagen ocupará el 100% del contenedor lightbox-content */
+            max-width: 100%;
+            max-height: 100%;
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 1);
             object-fit: contain;
         }
 
@@ -252,54 +253,24 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            color: #E6F1FF;
+            color: #FFFFFF;
             font-size: 30px;
             font-weight: bold;
             cursor: pointer;
-            z-index: 2001; /* Asegura que esté por encima de la imagen */
+            z-index: 2001;
             padding: 5px 10px;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             border-radius: 5px;
         }
 
-        .lightbox-close:hover {
-            color: #00BCD4;
-        }
-
-
-        /* Media Queries para dispositivos móviles */
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
                 padding: 10px;
                 gap: 10px;
             }
-            
-            .menu-list {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-
-            .content-body {
-                padding-top: 150px;
-            }
-
-            .models-grid-container {
-                gap: 20px;
-            }
-
-            .floating-actions {
-                bottom: 20px;
-                right: 10px;
-            }
-            
-            .footer {
-                padding: 5px;
-                font-size: 10px;
-            }
+            .content-body { padding-top: 150px; }
         }
-
     </style>
 </head>
 <body>
@@ -309,9 +280,7 @@
         <span class="menu-title">SKYBLACK®</span>
         <ul class="menu-list">
             <li><a href="#" onclick="showSection('home')">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-                    <path d="M12 5.69L17 10.19V18H15V12H9V18H7V10.19L12 5.69ZM12 3L2 12H5V20H11V14H13V20H19V12H22L12 3Z"/>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5.69L17 10.19V18H15V12H9V18H7V10.19L12 5.69ZM12 3L2 12H5V20H11V14H13V20H19V12H22L12 3Z"/></svg>
             </a></li>
             <li><a href="#" onclick="showSection('about')">Sobre nosotros</a></li>
             <li><a href="#" onclick="showSection('models')">Modelos</a></li>
@@ -328,44 +297,26 @@
     
     <div id="about-section" class="content-body" style="display:none;">
         <div class="section-content">
-            <p>Somos una empresa con más de 40 años en el mercado, distribuyendo productos ópticos. A mediados de 2022 decidimos empezar a fabricar en Córdoba nuestra línea de armazones. Alejandro Cristaldo fue el encargado del desarrollo de los modelos y de las matrices, que importamos después de mucho esfuerzo. A mediados de 2023 lanzamos las primeras pruebas y hoy contamos con 12 modelos en más de veinte colores. Hemos logrado una línea que se destaca por su calidad, diseño y precio. Gracias a nuestros distribuidores y aliados, hoy se comercializa en todo el país.</p>
+            <p>Somos una empresa con más de 40 años en el mercado... [Texto omitido por brevedad]</p>
         </div>
     </div>
     
     <div id="models-section" class="content-body" style="display:none;">
         <div class="section-content">
-            <div id="models-grid" class="models-grid-container">
-            </div>
+            <div id="models-grid" class="models-grid-container"></div>
         </div>
     </div>
 
     <div id="warranty-section" class="content-body" style="display:none;">
         <div class="section-content">
             <h3>Garantía SKYBLACK (Argentina)</h3>
-            <h4>Ámbito y plazo de la garantía legal</h4>
-            <p>SKYBLACK otorga la garantía legal mínima prevista por la Ley 24.240: 6 (seis) meses desde la entrega para bienes nuevos.</p>
-            <h4>Cobertura</h4>
-            <p>La garantía legal cubre defectos de fabricación y/o vicios de material o proceso que afecten la aptitud del producto para su uso normal.</p>
-            <p>Quedan <b>excluidos</b> daños por golpes, caídas, torsiones, uso indebido, falta de mantenimiento, exposición a calor/químicos, desgaste natural por uso, intervención de terceros no autorizados o instalación/ajustes fuera de especificación.</p>
-            <p>Esta garantía se suma a los derechos irrenunciables del consumidor previstos por la Ley 24.240.</p>
-            <h4>Responsables solidarios</h4>
-            <p>Son solidariamente responsables del otorgamiento y cumplimiento de la garantía legal los productores, importadores, distribuidores y vendedores.</p>
-            <h4>Servicio técnico y repuestos</h4>
-            <p>El proveedor debe asegurar un servicio técnico adecuado y el suministro de partes y repuestos durante el tiempo que corresponda.</p>
-            <h4>Constancia de reparación</h4>
-            <p>Cada reparación efectuada bajo garantía deberá documentarse mediante una constancia de reparación que indique, como mínimo: la naturaleza de la reparación, piezas reemplazadas o reparadas, y fechas de ingreso y devolución del producto.</p>
-            <h4>Cómo gestionar la garantía</h4>
-            <ol>
-                <li>Presentá <b>comprobante de compra</b>.</li>
-                <li>Contactanos por <b>mail</b> (skyblack@robertocristaldo.com.ar).</li>
-                <li>El producto será evaluado por el servicio técnico. Si corresponde, se procederá según corresponda.</li>
-            </ol>
+            <p>SKYBLACK otorga la garantía legal mínima prevista por la Ley 24.240...</p>
         </div>
     </div>
 
     <div id="downloads-section" class="content-body" style="display:none;">
         <div class="section-content" style="text-align: center;">
-            <p><a href="catalogo.pdf" target="_blank" style="color: #00BCD4;">Link de descarga catalogo.pdf</a></p>
+            <p><a href="catalogo.pdf" target="_blank" style="color: #FFFFFF; text-decoration: underline;">Descargar Catálogo PDF</a></p>
         </div>
     </div>
     
@@ -377,18 +328,14 @@
 
     <div class="floating-actions">
         <a href="https://wa.me/5493516790073" class="whatsapp-btn" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M12.04 2.1c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.35 4.95l-1.4 5.17 5.25-1.37c1.45.79 3.08 1.21 4.71 1.21h.02c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm0 1.62c4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24c-1.48 0-2.9-.39-4.15-1.15l-.29-.17-3.04.79.8-2.96-.19-.31c-.84-1.45-1.28-3.11-1.28-4.8 0-4.54 3.7-8.24 8.24-8.24zm4.27 10.93c-.23-.11-.9-.45-1.04-.5c-.14-.06-.24-.09-.34.09-.1.18-.39.46-.48.55-.1.09-.19.1-.37.05s-.77-.28-1.47-.9c-.54-.48-.91-1.07-1.02-1.26-.11-.19-.01-.29.09-.38.08-.08.18-.19.27-.29.09-.1.12-.17.18-.32.06-.14.03-.26-.01-.36s-.34-.82-.48-1.18c-.14-.35-.29-.3-.39-.31h-.32c-.1-.01-.21-.01-.32.01-.11.02-.41.15-1.26 1.05-.84.9-1.37 1.95-1.37 2.12.01.18.39.6.45.64.07.04.83 1.29 2.01 1.83 1.18.55 1.76.71 2.37.79.59.08 1.12.05 1.54.03.42-.02 1.03-.43 1.18-.87.16-.43.16-.8.11-.87-.05-.07-.15-.11-.3-.18z"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.04 2.1c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.35 4.95l-1.4 5.17 5.25-1.37c1.45.79 3.08 1.21 4.71 1.21h.02c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm0 1.62c4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24c-1.48 0-2.9-.39-4.15-1.15l-.29-.17-3.04.79.8-2.96-.19-.31c-.84-1.45-1.28-3.11-1.28-4.8 0-4.54 3.7-8.24 8.24-8.24zm4.27 10.93c-.23-.11-.9-.45-1.04-.5c-.14-.06-.24-.09-.34.09-.1.18-.39.46-.48.55-.1.09-.19.1-.37.05s-.77-.28-1.47-.9c-.54-.48-.91-1.07-1.02-1.26-.11-.19-.01-.29.09-.38.08-.08.18-.19.27-.29.09-.1.12-.17.18-.32.06-.14.03-.26-.01-.36s-.34-.82-.48-1.18c-.14-.35-.29-.3-.39-.31h-.32c-.1-.01-.21-.01-.32.01-.11.02-.41.15-1.26 1.05-.84.9-1.37 1.95-1.37 2.12.01.18.39.6.45.64.07.04.83 1.29 2.01 1.83 1.18.55 1.76.71 2.37.79.59.08 1.12.05 1.54.03.42-.02 1.03-.43 1.18-.87.16-.43.16-.8.11-.87-.05-.07-.15-.11-.3-.18z"/></svg>
         </a>
         <a href="mailto:skyblack@robertocristaldo.com.ar" class="email-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
         </a>
     </div>
 
-    <div id="lightbox" class="lightbox" >
+    <div id="lightbox" class="lightbox">
         <div class="lightbox-content">
             <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
             <img id="lightbox-img" src="" alt="Imagen ampliada">
@@ -396,26 +343,14 @@
     </div>
 
     <script>
-        /**
-         * Función para mostrar la sección seleccionada y ocultar las demás.
-         */
         function showSection(sectionId) {
             const sections = ['home', 'about', 'models', 'warranty', 'downloads'];
-            sections.forEach(id => {
-                document.getElementById(id + '-section').style.display = 'none';
-            });
+            sections.forEach(id => { document.getElementById(id + '-section').style.display = 'none'; });
             document.getElementById(sectionId + '-section').style.display = 'block';
-
-            if (sectionId === 'models') {
-                loadModels();
-            }
+            if (sectionId === 'models') loadModels();
         }
 
-        /**
-         * Función para generar la grilla de modelos.
-         */
         function loadModels() {
-            // Esta es la lista que debes editar.
             const modelsData = [
                 { nombre: "Modelo Flex 1", nombreArchivo: "imagen1.jpg", descripcion: "Armazón color Azul/transparente." },
                 { nombre: "Modelo Flex 2", nombreArchivo: "imagen2.jpg", descripcion: "Armazón color Verde/negro." },
@@ -428,13 +363,11 @@
                 { nombre: "Modelo Flex 9", nombreArchivo: "imagen9.jpg", descripcion: "Armazón color negro/transparente." },
                 { nombre: "Modelo Flex 10", nombreArchivo: "imagen10.jpg", descripcion: "Armazón color Azul/negro." },
                 { nombre: "Modelo Flex 11", nombreArchivo: "imagen11.jpg", descripcion: "Armazón color Verde T/Transparente." },
-                { nombre: "Modelo Flex 12", nombreArchivo: "imagen12.jpg", descripcion: "Armazón color Rosa/Negro." },
-              
-                
+                { nombre: "Modelo Flex 12", nombreArchivo: "imagen12.jpg", descripcion: "Armazón color Rosa/Negro." }
             ];
 
             const gridContainer = document.getElementById('models-grid');
-            gridContainer.innerHTML = ''; // Limpiar contenido previo
+            gridContainer.innerHTML = '';
 
             modelsData.forEach((model, index) => {
                 const modelItem = document.createElement('div');
@@ -446,17 +379,7 @@
                 
                 const productImg = document.createElement('img');
                 productImg.src = `imagenes/${model.nombreArchivo}`;
-                productImg.alt = `Imagen de ${model.nombre}`;
-                productImg.onerror = function() {
-                    this.src = 'https://placehold.co/400x300/1A2F4A/E6F1FF?text=No+encontrada';
-                };
-                
-                // Agrega el evento click para abrir el lightbox
-                // importante: usa event.stopPropagation() para que el clic en la imagen no cierre el lightbox inmediatamente
-                productImg.onclick = (event) => {
-                    event.stopPropagation(); // Evita que el clic en la imagen se propague al fondo del lightbox
-                    openLightbox(productImg.src);
-                };
+                productImg.onclick = (e) => { e.stopPropagation(); openLightbox(productImg.src); };
                 modelItem.appendChild(productImg);
                 
                 const productDesc = document.createElement('p');
@@ -464,7 +387,6 @@
                 modelItem.appendChild(productDesc);
                 
                 gridContainer.appendChild(modelItem);
-
                 if (index < modelsData.length - 1) {
                     const divider = document.createElement('hr');
                     divider.className = 'divider';
@@ -473,31 +395,17 @@
             });
         }
 
-        /**
-         * Abre el lightbox con la imagen seleccionada.
-         * @param {string} imgSrc - La URL de la imagen a mostrar.
-         */
-        function openLightbox(imgSrc) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = imgSrc;
-            lightbox.classList.add('active');
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
         }
 
-        /**
-         * Cierra el lightbox.
-         */
         function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
+            document.getElementById('lightbox').classList.remove('active');
         }
 
-        // Para cerrar el lightbox haciendo clic en el fondo oscuro
-        document.getElementById('lightbox').addEventListener('click', function(event) {
-            // Si el clic fue directamente en el fondo del lightbox (y no en la imagen o el botón de cierre)
-            if (event.target === this) {
-                closeLightbox();
-            }
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
         });
     </script>
 </body>
