@@ -10,7 +10,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             background-color: #121212; /* Negro profundo */
-            color: #FFFFFF; /* Blanco para máxima legibilidad */
+            color: #FFFFFF; /* Blanco */
             font-size: 14px;
         }
 
@@ -20,7 +20,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(to right, #000000, #333333); /* Gradiente negro a gris oscuro */
+            background: linear-gradient(to right, #000000, #333333);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
             display: flex;
             align-items: center;
@@ -49,14 +49,14 @@
 
         .menu-list a {
             text-decoration: none;
-            color: #CCCCCC; /* Gris claro */
+            color: #CCCCCC;
             font-weight: 500;
             transition: color 0.3s;
             font-size: 1em;
         }
 
         .menu-list a:hover {
-            color: #FFFFFF; /* Resalte en blanco */
+            color: #FFFFFF;
         }
         
         .menu-list a svg {
@@ -74,7 +74,7 @@
         }
 
         .initial-card {
-            background-color: #1E1E1E; /* Gris muy oscuro */
+            background-color: #1E1E1E;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
             padding: 20px;
@@ -104,7 +104,6 @@
             color: #FFFFFF;
             text-decoration: none;
             margin: 0 10px;
-            font-weight: bold;
         }
 
         /* Botones flotantes */
@@ -136,17 +135,8 @@
             fill: #ffffff;
         }
 
-        .floating-actions a:hover {
-            transform: scale(1.1);
-        }
-
-        .whatsapp-btn {
-            background-color: #25d366;
-        }
-
-        .email-btn {
-            background-color: #444444; /* Gris oscuro para el mail */
-        }
+        .whatsapp-btn { background-color: #25d366; }
+        .email-btn { background-color: #444444; }
 
         /* Contenido de secciones */
         .section-content {
@@ -183,17 +173,13 @@
             padding: 10px;
             background-color: #2D2D2D;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             width: 100%;
-            color: #FFFFFF;
         }
         
         .model-item img {
             width: 100%;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-            object-fit: cover;
             cursor: pointer;
         }
         
@@ -202,7 +188,6 @@
             padding: 10px;
             background-color: #2D2D2D;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             width: 100%;
             color: #CCCCCC;
         }
@@ -228,15 +213,10 @@
             z-index: 2000;
         }
 
-        .lightbox.active {
-            display: flex;
-        }
+        .lightbox.active { display: flex; }
 
         .lightbox-content {
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             max-width: 95%;
             max-height: 95%;
         }
@@ -245,8 +225,6 @@
             max-width: 100%;
             max-height: 100%;
             border-radius: 8px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 1);
-            object-fit: contain;
         }
 
         .lightbox-close {
@@ -257,18 +235,13 @@
             font-size: 30px;
             font-weight: bold;
             cursor: pointer;
-            z-index: 2001;
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 5px 10px;
-            background-color: rgba(0, 0, 0, 0.7);
             border-radius: 5px;
         }
 
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                padding: 10px;
-                gap: 10px;
-            }
+            .header { flex-direction: column; padding: 10px; gap: 10px; }
             .content-body { padding-top: 150px; }
         }
     </style>
@@ -297,7 +270,7 @@
     
     <div id="about-section" class="content-body" style="display:none;">
         <div class="section-content">
-            <p>Somos una empresa con más de 40 años en el mercado... [Texto omitido por brevedad]</p>
+            <p>Somos una empresa con más de 40 años en el mercado, distribuyendo productos ópticos. A mediados de 2022 decidimos empezar a fabricar en Córdoba nuestra línea de armazones. Alejandro Cristaldo fue el encargado del desarrollo de los modelos y de las matrices, que importamos después de mucho esfuerzo. A mediados de 2023 lanzamos las primeras pruebas y hoy contamos con 12 modelos en más de veinte colores. Hemos logrado una línea que se destaca por su calidad, diseño y precio. Gracias a nuestros distribuidores y aliados, hoy se comercializa en todo el país.</p>
         </div>
     </div>
     
@@ -310,13 +283,30 @@
     <div id="warranty-section" class="content-body" style="display:none;">
         <div class="section-content">
             <h3>Garantía SKYBLACK (Argentina)</h3>
-            <p>SKYBLACK otorga la garantía legal mínima prevista por la Ley 24.240...</p>
+            <h4>Ámbito y plazo de la garantía legal</h4>
+            <p>SKYBLACK otorga la garantía legal mínima prevista por la Ley 24.240: 6 (seis) meses desde la entrega para bienes nuevos.</p>
+            <h4>Cobertura</h4>
+            <p>La garantía legal cubre defectos de fabricación y/o vicios de material o proceso que afecten la aptitud del producto para su uso normal.</p>
+            <p>Quedan <b>excluidos</b> daños por golpes, caídas, torsiones, uso indebido, falta de mantenimiento, exposición a calor/químicos, desgaste natural por uso, intervención de terceros no autorizados o instalación/ajustes fuera de especificación.</p>
+            <p>Esta garantía se suma a los derechos irrenunciables del consumidor previstos por la Ley 24.240.</p>
+            <h4>Responsables solidarios</h4>
+            <p>Son solidariamente responsables del otorgamiento y cumplimiento de la garantía legal los productores, importadores, distribuidores y vendedores.</p>
+            <h4>Servicio técnico y repuestos</h4>
+            <p>El proveedor debe asegurar un servicio técnico adecuado y el suministro de partes y repuestos durante el tiempo que corresponda.</p>
+            <h4>Constancia de reparación</h4>
+            <p>Cada reparación efectuada bajo garantía deberá documentarse mediante una constancia de reparación que indique, como mínimo: la naturaleza de la reparación, piezas reemplazadas o reparadas, y fechas de ingreso y devolución del producto.</p>
+            <h4>Cómo gestionar la garantía</h4>
+            <ol>
+                <li>Presentá <b>comprobante de compra</b>.</li>
+                <li>Contactanos por <b>mail</b> (skyblack@robertocristaldo.com.ar).</li>
+                <li>El producto será evaluado por el servicio técnico. Si corresponde, se procederá según corresponda.</li>
+            </ol>
         </div>
     </div>
 
     <div id="downloads-section" class="content-body" style="display:none;">
         <div class="section-content" style="text-align: center;">
-            <p><a href="catalogo.pdf" target="_blank" style="color: #FFFFFF; text-decoration: underline;">Descargar Catálogo PDF</a></p>
+            <p><a href="catalogo.pdf" target="_blank" style="color: #FFFFFF; text-decoration: underline;">Link de descarga catalogo.pdf</a></p>
         </div>
     </div>
     
